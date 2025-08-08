@@ -57,7 +57,7 @@ print(set2.difference(set1)) # Only those elements that are in set2 but not in s
 print(set2.symmetric_difference(set1))  # not in both all unique
 
 ############### Subset
-set1={1,2,3}
+set1={1,2,3,5,8,9,0,0}
 set2={4,5,1,2,7,3,6}
 print(set1.issubset(set2))
 
