@@ -64,3 +64,39 @@ print(set1.issubset(set2))
 ################ Super set
 print(set1.issuperset(set2))
 print(set2.issuperset(set1))
+
+# Creating sets
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+
+# Display sets
+print("Set 1:", set1)
+print("Set 2:", set2)
+
+# Union
+print("Union:", set1.union(set2))
+
+# Intersection
+print("Intersection:", set1.intersection(set2))
+
+# Difference
+print("Difference (set1 - set2):", set1.difference(set2))
+
+# Symmetric Difference
+print("Symmetric Difference:", set1.symmetric_difference(set2))
+
+# Adding element to set
+set1.add(7)
+print("After adding 7 to set1:", set1)
+
+# Removing element from set
+set1.remove(2)  # Will raise error if element not present
+print("After removing 2 from set1:", set1)
+
+# Discard element (no error if not present)
+set1.discard(10)  # Won't throw error
+print("After discard 10 (not present):", set1)
+
+
+
+
