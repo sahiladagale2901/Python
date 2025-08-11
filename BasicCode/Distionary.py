@@ -51,5 +51,37 @@ for k,v in d.items():
    print(k,v)
 print()
 
+# Creating a dictionary
+student = {
+    "name": "Rahul",
+    "age": 21,
+    "course": "Computer Science"
+}
+
+# Printing the dictionary
+print("Student Details:", student)
+
+# Accessing values
+print("Name:", student["name"])
+print("Age:", student["age"])
+
+# Adding a new key-value pair
+student["grade"] = "A"
+print("After adding grade:", student)
+
+# Updating a value
+student["age"] = 22
+print("After updating age:", student)
+
+# Deleting a key-value pair
+del student["course"]
+print("After deleting course:", student)
+
+# Looping through dictionary
+print("\nLooping through dictionary:")
+for key, value in student.items():
+    print(f"{key} : {value}")
+
+
 
 
