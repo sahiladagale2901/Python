@@ -84,4 +84,42 @@ for key, value in student.items():
 
 
 
+########################################################################################
+
+# Dictionary to store student names and their marks
+students = {}
+
+# Taking input from user
+n = int(input("Enter number of students: "))
+
+for i in range(n):
+    name = input(f"Enter name of student {i+1}: ")
+    marks = float(input(f"Enter marks of {name}: "))
+    students[name] = marks
+
+# Display the dictionary
+print("\nStudent Records:")
+for name, marks in students.items():
+    print(f"{name}: {marks}")
+
+# Find the topper
+topper = max(students, key=students.get)
+print(f"\nTopper: {topper} ({students[topper]} marks)")
+
+# Sort by marks (descending)
+sorted_students = dict(sorted(students.items(), key=lambda x: x[1], reverse=True))
+print("\nStudents sorted by marks:")
+for name, marks in sorted_students.items():
+    print(f"{name}: {marks}")
+
+# Search for a student
+search_name = input("\nEnter student name to search: ")
+if search_name in students:
+    print(f"{search_name} has {students[search_name]} marks.")
+else:
+    print(f"{search_name} not found in records.")
+
+
+
+
 
