@@ -66,4 +66,39 @@ for ind, ele in enumerate(l):
 evenList=[n for n in range(1,11) if n%2==0]
 print(evenList)
 
+print("###################################################################################################")
+
+# Student Marks Analyzer
+
+# Step 1: Initial list of student marks
+marks = [78, 85, 62, 90, 88]
+print("Initial Marks:", marks)
+
+# Step 2: Add a new mark
+marks.append(95)
+print("After Adding 95:", marks)
+
+# Step 3: Insert a mark at a specific position
+marks.insert(2, 70)  # Insert at index 2
+print("After Inserting 70 at index 2:", marks)
+
+# Step 4: Remove a specific mark
+marks.remove(62)
+print("After Removing 62:", marks)
+
+# Step 5: Sort marks in ascending order
+marks.sort()
+print("Sorted Marks:", marks)
+
+# Step 6: Get top 3 marks (highest)
+top_3 = sorted(marks, reverse=True)[:3]
+print("Top 3 Marks:", top_3)
+
+# Step 7: Calculate average mark
+average = sum(marks) / len(marks)
+print("Average Marks:", round(average, 2))
+
+# Step 8: Use list comprehension to find marks > average
+above_avg = [m for m in marks if m > average]
+print("Marks above average:", above_avg)
 
