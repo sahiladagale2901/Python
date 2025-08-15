@@ -91,4 +91,42 @@ print(f"Smallest of the above list is : {lt[0]}")
 # ==================================================================================================================================================
 # --------------------------------------------------------------------------------------------------------------------------------------------------
 
-############################################# ######################################
+############################################# Dict List and Set ######################################
+
+# -------------------------------
+# Example: Students & Subjects
+# -------------------------------
+
+# List of student names
+students = ["Amit", "Priya", "Rohit", "Amit", "Neha", "Priya"]
+
+# Remove duplicates using a set
+unique_students = set(students)
+print("Unique Students:", unique_students)
+
+# Dictionary to store student -> subjects mapping
+student_subjects = {
+    "Amit": ["Math", "Physics"],
+    "Priya": ["Biology", "Chemistry"],
+    "Rohit": ["History", "Geography"],
+    "Neha": ["Computer", "Math"]
+}
+
+# Add a new student from the set to dict (if not present)
+for student in unique_students:
+    if student not in student_subjects:
+        student_subjects[student] = []
+
+# Print dictionary
+print("\nStudent Subjects:")
+for name, subjects in student_subjects.items():
+    print(f"{name}: {subjects}")
+
+# Find all unique subjects across all students (set + list comprehension)
+all_subjects = {subj for subs in student_subjects.values() for subj in subs}
+print("\nAll Unique Subjects:", all_subjects)
+
+# Convert the set of subjects to a sorted list
+sorted_subjects = sorted(list(all_subjects))
+print("Sorted Subjects List:", sorted_subjects)
+
