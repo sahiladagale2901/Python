@@ -151,4 +151,34 @@ print(li_0+li_1)
 print(li_1)
 
 
-################ Or in same List
+###############
+
+# String Program in Python
+
+# Input from user
+text = input("Enter a string: ")
+
+# 1. Length of string
+print("\nLength of string:", len(text))
+
+# 2. Convert to uppercase and lowercase
+print("Uppercase:", text.upper())
+print("Lowercase:", text.lower())
+
+# 3. Reverse the string
+print("Reversed string:", text[::-1])
+
+# 4. Count vowels in the string
+vowels = "aeiouAEIOU"
+count = sum(1 for char in text if char in vowels)
+print("Number of vowels:", count)
+
+# 5. Check if string is palindrome
+if text == text[::-1]:
+    print("Palindrome: Yes")
+else:
+    print("Palindrome: No")
+
+# 6. Replace spaces with hyphens
+print("With hyphens:", text.replace(" ", "-"))
+
