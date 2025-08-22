@@ -53,4 +53,17 @@ people = [
     {"name": "Sub", "age": 30}
 ]
 
-fil=filter 
+fil=dict(filter(lambda x:x["age"]>25,people))
+print(fil)
+
+import numpy as np
+n=np.array([1,2,3])
+print(type(n),n)
+
+######################## Calling our own package
+from ImportFunctions.Maths import additions
+print(additions(12,15))
+
+from ImportFunctions import Maths
+
+Maths.additions(10,10)
