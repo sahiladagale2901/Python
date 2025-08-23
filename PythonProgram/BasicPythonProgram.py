@@ -76,15 +76,15 @@ print(f"smallest number from the list is: {lt[len(lt) - 1]}")  # or print(f"smal
 lt = [2, 34, 2, 456, 32467, 256, 9098]
 
 for i in range(len(lt) - 1):
-    for j in range(i,len(lt) - 1):
+    for j in range(i, len(lt) - 1):
 
         if lt[i] > lt[j]:
-            temp=lt[j]
-            lt[j]=lt[i]
-            lt[i]=temp
+            temp = lt[j]
+            lt[j] = lt[i]
+            lt[i] = temp
 
 print(lt)
-print(f"Largest of the above list is : {lt[len(lt)-1]}")
+print(f"Largest of the above list is : {lt[len(lt) - 1]}")
 print(f"Smallest of the above list is : {lt[0]}")
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -136,20 +136,19 @@ print("Sorted Subjects List:", sorted_subjects)
 
 ########################################## separate 1 and 0 #################################
 
-li=[0,1,1,0,0,0,1,1,1,0,1,0,1,0]
+li = [0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0]
 
-li_1=[]
-li_0=[]
+li_1 = []
+li_0 = []
 
 for i in li:
-    if li[i]==0:
+    if li[i] == 0:
         li_0.append(li[i])
     else:
         li_1.append(li[i])
 
-print(li_0+li_1)
+print(li_0 + li_1)
 print(li_1)
-
 
 ###############
 
@@ -185,10 +184,91 @@ print(li_1)
 
 ######################################################### Sum of the Digit ###########################
 
-intNum=123123
-sum=0
+intNum = 123123
+sum = 0
 for i in str(intNum):
-
-    sum+=int(i)
+    sum += int(i)
 
 print(sum)
+
+
+#####################################################################################################
+def calculate_y(slope, intercept, x):
+    """
+    Function to calculate the value of y using the slope-intercept form of a line.
+
+    Parameters:
+    slope (float): The slope of the line.
+    intercept (float): The y-intercept of the line.
+    x (float): The value of x for which y needs to be calculated.
+
+    Returns:
+    float: The calculated value of y.
+    """
+    # Your code here
+
+    return slope * x + intercept
+
+
+######################################################################################################
+
+def sum_list(numbers):
+    total = 0
+
+    for i in numbers:
+        total += i
+
+    return total
+
+
+######################################################################################################
+def find_largest(numbers):
+    sorted_numbers = sorted(numbers, reverse=True)
+
+    return sorted_numbers[0]
+
+
+######################################################################################################
+def remove_duplicates(lst):
+    s = list(set(lst))
+    return s
+
+
+######################################################################################################
+
+# Check if all elements in a List are Unique
+
+def check_unique(lst):
+    lst = sorted(lst, reverse=False)
+
+    set_list = list(set(lst))
+
+    if set_list == lst:
+        return True
+    else:
+        return False
+
+
+######################################################################################################
+def reverse_list(lst):
+    return lst[::-1]
+
+
+######################################################################################################
+def count_even_odd(lst):
+    even = 0
+    odd = 0
+    for i in lst:
+        if i % 2 == 0:
+            even += 1
+        else:
+            odd += 1
+
+    return even, odd
+#####################################################################################################
+def is_subset(lst1, lst2):
+    set1=set(lst1)
+    set2=set(lst2)
+    return set1.issubset(set2)
+
+#####################################################################################################
