@@ -1,3 +1,6 @@
+from BasicCode.venv.Lib.tkinter.font import names
+
+
 class Person:
 
     # Constructor
@@ -186,3 +189,79 @@ print_area(rect)
 print_area(circle)
 
 #####################################################################################################################
+# Polymorphism with Abstract Base class
+
+from abc import ABC, abstractmethod
+
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start_engine(self):
+        pass
+
+
+class Car(Vehicle):
+    def start_engine(self):
+        return "Car Start"
+
+
+class Motorcycle(Vehicle):
+    def start_engine(self):
+        return "Motorcycle Start"
+
+
+def start_Engine(vehicle):
+    return f"{vehicle.start_engine()}"
+
+
+car = Car()
+motorcycle = Motorcycle()
+
+print(start_Engine(car))
+
+
+####################################################################################################################
+
+### Encapsulation
+
+class Person():
+    def __init__(self, name, age):
+        self.name = name  ## Public variable
+        self.age = age  ## Public variable
+
+
+def get_name(per):
+    return per.name
+
+
+person = Person("Sahil", 27)
+# print(person.name)
+
+print(dir(person))
+
+
+### Encapsulation
+################################### Private variable
+class Person():
+    def __init__(self, name, age):
+        self.__name = name  ## private variable  -> __variable
+        self.__age = age  ## private variable
+
+
+class Em(Person):
+    def __init__(self, name, age,gender):
+        super().__init__(name, age)
+        self.gender = gender
+
+# def get_name(per):
+#     return per.__name
+
+
+person = Person("Sahil", 27)
+# print(person.name)
+
+## Error -> Attribute Error bcz private variable
+# print(get_name(person))
+
+em=Em("Sahil", 27,"M")
+print(get_name(em.__name))
