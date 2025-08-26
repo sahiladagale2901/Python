@@ -242,26 +242,86 @@ print(dir(person))
 
 ### Encapsulation
 ################################### Private variable
-class Person():
+class Person1():
     def __init__(self, name, age):
         self.__name = name  ## private variable  -> __variable
         self.__age = age  ## private variable
 
+    def get_name(self):
+        return self.__name
 
-class Em(Person):
-    def __init__(self, name, age,gender):
+
+class Em(Person1):
+    def __init__(self, name, age, gender):
         super().__init__(name, age)
         self.gender = gender
 
-# def get_name(per):
-#     return per.__name
 
-
-person = Person("Sahil", 27)
 # print(person.name)
 
 ## Error -> Attribute Error bcz private variable
 # print(get_name(person))
 
-em=Em("Sahil", 27,"M")
-print(get_name(em.__name))
+em = Em("Sahil", 27, "M")
+print(em.get_name())
+
+
+### Encapsulation
+################################### Getter Setter Method
+
+class Person2():
+    def __init__(self, name=None, age=None):
+        self.__name = name  ## private variable  -> __variable
+        self.__age = age
+
+    ## Getter
+    def get_name(self):
+        return self.__name
+
+    ## Setter
+    def set_name(self, name):
+        self.__name = name
+
+    ## Getter
+    def get_age(self):
+        return self.__age
+
+    ## Setter
+    def set_age(self, age):
+        self.__age = age
+
+
+# person=Person2("Sahil",27)
+person = Person2()  ## If don't want to provide 1st then parameters assign with None
+person.set_name("Subbu")
+print(person.get_name())
+
+#####################################################################################################
+
+## Abstraction: hiding implementation, show necessary feature
+
+from abc import ABC, abstractmethod
+
+
+class Vehicle(ABC):
+    def drive(self):
+        print("The vehicle is used for driving")
+
+    @abstractmethod
+    def start_engine(self):
+        pass
+
+
+class Car(Vehicle):
+
+    def start_engine(self):
+        print("Car engine started")
+
+
+def operate_vehicle(vehicle):
+    vehicle.start_engine()
+    vehicle.drive()
+
+
+car = Car()
+operate_vehicle(car)
