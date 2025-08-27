@@ -272,3 +272,81 @@ def is_subset(lst1, lst2):
     return set1.issubset(set2)
 
 #####################################################################################################
+# Student Marks Management System
+
+def add_student(students, name, marks):
+    """Add a student and their marks."""
+    if name in students:
+        print(f"⚠️ {name} already exists. Updating marks...")
+    students[name] = marks
+
+
+def display_students(students):
+    """Display all students with marks."""
+    if not students:
+        print("📂 No student records found.")
+        return
+    print("\n--- Student Records ---")
+    for name, marks in students.items():
+        print(f"{name}: {marks}")
+
+
+def topper(students):
+    """Find and display the student with the highest marks."""
+    if not students:
+        print("❌ No data available to find topper.")
+        return
+    top = max(students, key=students.get)
+    print(f"\n🏆 Topper: {top} ({students[top]} marks)")
+
+
+def sort_students(students):
+    """Sort students by marks in descending order."""
+    sorted_students = dict(sorted(students.items(), key=lambda x: x[1], reverse=True))
+    print("\n📊 Students sorted by marks:")
+    for name, marks in sorted_students.items():
+        print(f"{name}: {marks}")
+
+
+# Main program
+students = {}
+
+while True:
+    print("\nMenu:")
+    print("1. Add/Update Student")
+    print("2. Display Students")
+    print("3. Find Topper")
+    print("4. Sort by Marks")
+    print("5. Exit")
+
+    try:
+        choice = int(input("Enter your choice: "))
+    except ValueError:
+        print("❌ Please enter a valid number.")
+        continue
+
+    if choice == 1:
+        name = input("Enter student name: ").strip()
+        try:
+            marks = int(input(f"Enter marks for {name}: "))
+        except ValueError:
+            print("❌ Marks must be an integer.")
+            continue
+        add_student(students, name, marks)
+
+    elif choice == 2:
+        display_students(students)
+
+    elif choice == 3:
+        topper(students)
+
+    elif choice == 4:
+        sort_students(students)
+
+    elif choice == 5:
+        print("✅ Exiting program. Goodbye!")
+        break
+
+    else:
+        print("❌ Invalid choice, try again.")
+
