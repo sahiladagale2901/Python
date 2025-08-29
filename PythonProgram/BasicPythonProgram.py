@@ -350,3 +350,50 @@ while True:
     else:
         print("❌ Invalid choice, try again.")
 
+
+    ###############################################################################################
+
+    # Python Program on Functions
+
+    # 1. Function without parameters
+    def greet():
+        print("Hello! Welcome to Python functions.")
+
+
+    # 2. Function with parameters
+    def add_numbers(a, b):
+        return a + b
+
+
+    # 3. Function with default parameter
+    def power(base, exponent=2):
+        return base ** exponent
+
+
+    # 4. Function with multiple returns
+    def min_max(numbers):
+        return min(numbers), max(numbers)
+
+
+    # -----------------------
+    # Calling the functions
+    # -----------------------
+
+    # 1. No parameters
+    greet()
+
+    # 2. With parameters
+    result = add_numbers(5, 7)
+    print("Sum of 5 and 7 is:", result)
+
+    # 3. Default parameter
+    print("5 squared is:", power(5))
+    print("5 to the power of 3 is:", power(5, 3))
+
+    # 4. Multiple return values
+    numbers = [4, 8, 1, 9, 2]
+    minimum, maximum = min_max(numbers)
+    print("Minimum number is:", minimum)
+    print("Maximum number is:", maximum)
+
+
