@@ -396,4 +396,89 @@ while True:
     print("Minimum number is:", minimum)
     print("Maximum number is:", maximum)
 
+###############################################################################################
+# Example of Method Overloading using default arguments
+class Calculator:
+    def add(self, a=0, b=0, c=0):
+        return a + b + c
+
+# Testing
+calc = Calculator()
+print("Sum of two numbers:", calc.add(10, 20))        # 30
+print("Sum of three numbers:", calc.add(10, 20, 30)) # 60
+print("Sum with one number:", calc.add(10))          # 10
+
+###############################################################################################
+
+# Example of Method Overriding
+class Animal:
+    def sound(self):
+        print("Animals make sounds")
+
+class Dog(Animal):
+    def sound(self):  # overriding parent method
+        print("Dog barks")
+
+class Cat(Animal):
+    def sound(self):  # overriding parent method
+        print("Cat meows")
+
+# Testing
+a = Animal()
+a.sound()   # Animals make sounds
+
+d = Dog()
+d.sound()   # Dog barks
+
+c = Cat()
+c.sound()   # Cat meows
+
+
+#######################################################################################################
+from abc import ABC, abstractmethod
+
+# Abstract Class
+class Shape(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass   # abstract method, no body
+
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+# Concrete Class
+class Rectangle(Shape):
+    def __init__(self, length, breadth):
+        self.length = length
+        self.breadth = breadth
+
+    def area(self):
+        return self.length * self.breadth
+
+    def perimeter(self):
+        return 2 * (self.length + self.breadth)
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+    def perimeter(self):
+        return 2 * 3.14 * self.radius
+
+
+# Testing
+rect = Rectangle(10, 5)
+print("Rectangle Area:", rect.area())         # 50
+print("Rectangle Perimeter:", rect.perimeter()) # 30
+
+circle = Circle(7)
+print("Circle Area:", circle.area())          # 153.86
+print("Circle Perimeter:", circle.perimeter()) # 43.96
+
 
