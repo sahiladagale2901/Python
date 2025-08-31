@@ -481,4 +481,41 @@ circle = Circle(7)
 print("Circle Area:", circle.area())          # 153.86
 print("Circle Perimeter:", circle.perimeter()) # 43.96
 
+##############################################################################################################
+
+class BankAccount:
+    def __init__(self, account_number, balance):
+        self.__account_number = account_number  # private variable
+        self.__balance = balance                # private variable
+
+    # Getter for balance
+    def get_balance(self):
+        return self.__balance
+
+    # Setter for balance (with condition)
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Deposited: {amount}")
+        else:
+            print("Invalid deposit amount")
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            print(f"Withdrew: {amount}")
+        else:
+            print("Invalid withdraw amount or Insufficient balance")
+
+# Testing
+acc = BankAccount("12345", 1000)
+
+# Access through methods (good ✅)
+print("Balance:", acc.get_balance())  # 1000
+acc.deposit(500)                      # Deposited: 500
+acc.withdraw(300)                     # Withdrew: 300
+print("Balance:", acc.get_balance())  # 1200
+
+
+
 
