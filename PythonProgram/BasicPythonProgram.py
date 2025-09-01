@@ -515,6 +515,68 @@ print("Balance:", acc.get_balance())  # 1000
 acc.deposit(500)                      # Deposited: 500
 acc.withdraw(300)                     # Withdrew: 300
 print("Balance:", acc.get_balance())  # 1200
+##################################################################################################
+
+# Base class
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display_info(self):
+        print(f"Name: {self.name}, Age: {self.age}")
+
+
+# Derived class (single inheritance)
+class Student(Person):
+    def __init__(self, name, age, student_id, course):
+        super().__init__(name, age)  # Call parent constructor
+        self.student_id = student_id
+        self.course = course
+
+    def display_info(self):  # Overriding parent method
+        super().display_info()
+        print(f"Student ID: {self.student_id}, Course: {self.course}")
+
+
+# Another derived class (multilevel inheritance)
+class GraduateStudent(Student):
+    def __init__(self, name, age, student_id, course, thesis_topic):
+        super().__init__(name, age, student_id, course)
+        self.thesis_topic = thesis_topic
+
+    def display_info(self):  # Overriding again
+        super().display_info()
+        print(f"Thesis Topic: {self.thesis_topic}")
+
+
+# Derived class with its own method
+class Teacher(Person):
+    def __init__(self, name, age, subject):
+        super().__init__(name, age)
+        self.subject = subject
+
+    def display_info(self):
+        super().display_info()
+        print(f"Subject: {self.subject}")
+
+
+# Testing the classes
+print("---- Person ----")
+p1 = Person("Alice", 40)
+p1.display_info()
+
+print("\n---- Student ----")
+s1 = Student("Bob", 20, "ST101", "Computer Science")
+s1.display_info()
+
+print("\n---- Graduate Student ----")
+g1 = GraduateStudent("Charlie", 24, "GS202", "AI", "Deep Learning in Healthcare")
+g1.display_info()
+
+print("\n---- Teacher ----")
+t1 = Teacher("Dr. Smith", 45, "Mathematics")
+t1.display_info()
 
 
 
