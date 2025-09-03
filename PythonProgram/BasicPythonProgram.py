@@ -578,6 +578,35 @@ print("\n---- Teacher ----")
 t1 = Teacher("Dr. Smith", 45, "Mathematics")
 t1.display_info()
 
+########################################################################################
+
+# File: file_example.py
+
+# 1. Writing to a text file (creates if not exists)
+with open("..\File\example.txt", "w") as file:
+    file.write("Hello, this is the first line.\n")
+    file.write("Python makes file handling easy!\n")
+
+print("✅ Data written to example.txt")
+
+# 2. Reading from the file
+with open("..\File\example.txt", "r") as file:
+    content = file.read()
+    print("\n📖 File Content:\n")
+    print(content)
+
+# 3. Appending new data
+with open("..\File\example.txt", "a") as file:
+    file.write("This line was appended later.\n")
+
+print("\n✅ Data appended to example.txt")
+
+# 4. Reading line by line
+with open("..\File\example.txt", "r") as file:
+    print("\n📌 Reading line by line:")
+    for line in file:
+        print(line.strip())
+
 
 
 
