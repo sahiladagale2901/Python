@@ -646,6 +646,23 @@ elif choice == 4:
 else:
     print("Invalid choice")
 
+###############################################################################
+def is_leap_year(year):
+    # Leap year rules:
+    # 1. Divisible by 4 → leap year
+    # 2. Divisible by 100 → not a leap year
+    # 3. Divisible by 400 → leap year
+    if (year % 400 == 0) or (year % 100 != 0 and year % 4 == 0):
+        return True
+    return False
+
+# Example usage
+year = int(input("Enter a year: "))
+if is_leap_year(year):
+    print(f"{year} is a Leap Year ✅")
+else:
+    print(f"{year} is NOT a Leap Year ❌")
+
 
 
 
