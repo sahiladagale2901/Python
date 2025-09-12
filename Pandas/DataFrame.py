@@ -54,3 +54,27 @@ print(df)
 print("\n########## Addition of 1 in age\n")
 df['Age'] = df['Age'] + 1
 print(df)
+
+print('\n\n########################## Data Set #########################\n')
+
+df = pd.read_csv("../File/Coffe_sales.csv")
+print(df.head())
+print(df.describe())
+
+print("Missing Values:\n", df.isnull().any(), "\n")
+print("Sum of Missing Values:\n", df.isnull().sum(), "\n")
+print("Fill Missing Values:\n", df.fillna(0), "\n")
+
+print("Fill Missing Values with mean os tht column:\n",
+      df['hour_of_day'].fillna(df['hour_of_day'].mean()), "\n")
+
+print("Rename a column:\n",
+      df.rename(columns={'hour_of_day': 'Hours_day'}), "\n")
+
+df['extended_money'] = df['money'].apply(lambda x: x ** 2)
+print("Apply value to new column:\n", df['extended_money'].head(), "\n")
+
+print("\n########### Data Aggregating and Grouping:\n")
+
+grouped_mean = df.groupby('coffee_name')['money'].mean()
+print(grouped_mean)
