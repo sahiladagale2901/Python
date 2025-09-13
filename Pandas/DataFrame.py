@@ -78,3 +78,23 @@ print("\n########### Data Aggregating and Grouping:\n")
 
 grouped_mean = df.groupby('coffee_name')['money'].mean()
 print(grouped_mean)
+
+grouped_sum = df.groupby(['coffee_name', 'Month_name'])['money'].sum()
+print(grouped_sum)
+
+print("\n########### Aggregating Multipal Function:\n")
+
+grouped_agg = df.groupby('coffee_name')['money'].agg(['mean', 'sum', 'count'])
+print(grouped_agg)
+
+print("\n########### Merging and joining dataframes:\n")
+
+df1 = pd.DataFrame({'Key': ['A', 'B', 'C'], 'Value1': [1, 2, 3]})
+df2 = pd.DataFrame({'Key': ['A', 'B', 'D'], 'Value2': [4, 5, 6]})
+
+print(df1, '\n', df2)
+
+print("Inner Merge;\n", pd.merge(df1, df2, on="Key", how='inner'),"\n")
+print("Outer Merge;\n", pd.merge(df1, df2, on="Key", how='outer'),"\n")
+print("Left Merge;\n", pd.merge(df1, df2, on="Key", how='left'),"\n")
+print("Right Merge;\n", pd.merge(df1, df2, on="Key", how='right'),"\n")
