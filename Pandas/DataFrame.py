@@ -94,7 +94,19 @@ df2 = pd.DataFrame({'Key': ['A', 'B', 'D'], 'Value2': [4, 5, 6]})
 
 print(df1, '\n', df2)
 
-print("Inner Merge;\n", pd.merge(df1, df2, on="Key", how='inner'),"\n")
-print("Outer Merge;\n", pd.merge(df1, df2, on="Key", how='outer'),"\n")
-print("Left Merge;\n", pd.merge(df1, df2, on="Key", how='left'),"\n")
-print("Right Merge;\n", pd.merge(df1, df2, on="Key", how='right'),"\n")
+print("Inner Merge;\n", pd.merge(df1, df2, on="Key", how='inner'), "\n")
+print("Outer Merge;\n", pd.merge(df1, df2, on="Key", how='outer'), "\n")
+print("Left Merge;\n", pd.merge(df1, df2, on="Key", how='left'), "\n")
+print("Right Merge;\n", pd.merge(df1, df2, on="Key", how='right'), "\n")
+
+print("\n########### Read Html dataframes:\n")
+
+import requests
+
+url = "https://en.wikipedia.org/wiki/Mobile_phone"
+
+# Pretend to be a browser
+headers = {"User-Agent": "Mozilla/5.0"}
+response = requests.get(url, headers=headers)
+df_mobile = pd.read_html(response.text, match='Manufacturer')
+print(df_mobile[0])
